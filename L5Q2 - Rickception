@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int serie(int N, int T, int alternador, int valor) {
+    if (T == 0) {
+        return valor; 
+    } else if (alternador == 0) {
+       
+        return serie(N, T - 1, 1, valor + 3);
+    } else {
+       
+        return serie(N, T - 1, 0, valor + (valor % 5));
+    }
+}
+
+int main() {
+    int N, T;
+    scanf("%d %d", &N, &T);
+
+    int R = serie(N, T, 0, N); 
+    printf("%d\n", R);
+
+    return 0;
+}
