@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int ContaDigitosPares(int num) {
+    if (num == 0) {
+        return 0;
+    }
+    int digito = num % 10;
+    int numDigitosPares = (digito % 2 == 0) ? 1 : 0;
+    int digitosRestantes = ContaDigitosPares(num / 10);
+    return numDigitosPares + digitosRestantes;
+}
+
+int main() {
+    int num;
+    scanf("%d", &num);
+    
+    int numDigitosPares = ContaDigitosPares(num);
+    printf("%d\n", numDigitosPares);
+
+    return 0;
+}
