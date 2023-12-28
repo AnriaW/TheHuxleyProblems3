@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int euclidesMDC(int a, int b) {
+    if (b == 0) {
+        return a;
+    } else {
+        return euclidesMDC(b, a % b); 
+    }
+}
+
+void resolverCasos(int numCasos) {
+    if (numCasos == 0) {
+        return;
+    }
+
+    int a, b;
+    scanf("%d %d", &a, &b);
+
+    int mdc = euclidesMDC(a, b);
+    printf("MDC(%d,%d) = %d\n", a, b, mdc);
+
+    resolverCasos(numCasos - 1);} 
+
+int main() {
+    int N;
+    scanf("%d", &N);
+
+    resolverCasos(N);
+
+    return 0;
+}
